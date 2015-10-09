@@ -104,6 +104,11 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="tbpTabs">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[150, 150]"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -121,7 +126,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="966" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="809" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -130,7 +135,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="624" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="629" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -181,15 +186,228 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="990" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="btnFirst1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnPrevious1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnNext1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnLast1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtStaticUsername" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtStaticTotalLogins" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtStaticDOB" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnSearchEditor" min="-2" pref="381" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="btnRmEditor" pref="386" max="32767" attributes="0"/>
+                                      <Component id="btnEditEditor" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnNewEditor" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtStaticIsAdmin" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="dpDOB" min="-2" pref="204" max="-2" attributes="0"/>
+                                          <Component id="spnTotLogins" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                          <Component id="txtUsername" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                          <Component id="chkIsAdmin" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="120" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="648" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnFirst1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnPrevious1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNext1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLast1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane3" min="-2" pref="564" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Component id="txtStaticUsername" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtUsername" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtStaticIsAdmin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkIsAdmin" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtStaticTotalLogins" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnTotLogins" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtStaticDOB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dpDOB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="btnNewEditor" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="btnEditEditor" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="btnRmEditor" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="btnSearchEditor" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="btnFirst1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirst1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnPrevious1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrevious1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnNext1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNext1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnLast1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLast1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lsEditor">
+                  <BindingProperties>
+                    <BindingProperty name="elements" source="editorstbList" target="lsEditor" targetPath="elements" updateStrategy="0" immediately="false"/>
+                  </BindingProperties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="txtStaticTotalLogins">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Total Logins:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtStaticUsername">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Username:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtStaticIsAdmin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Is Administrator?:"/>
+              </Properties>
+            </Component>
+            <Component class="org.jdesktop.swingx.JXDatePicker" name="dpDOB">
+              <BindingProperties>
+                <BindingProperty name="date" source="tblEditors" sourcePath="${selectedElement.dateofbirth}" target="dpDOB" targetPath="date" updateStrategy="0" immediately="false"/>
+              </BindingProperties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtStaticDOB">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Date of Birth:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spnTotLogins">
+              <BindingProperties>
+                <BindingProperty name="value" source="tblEditors" sourcePath="${selectedElement.totallogins}" target="spnTotLogins" targetPath="value" updateStrategy="0" immediately="false"/>
+              </BindingProperties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtUsername">
+              <BindingProperties>
+                <BindingProperty name="text" source="tblEditors" sourcePath="${selectedElement.username}" target="txtUsername" targetPath="text" updateStrategy="0" immediately="false">
+                  <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
+                </BindingProperty>
+              </BindingProperties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnNewEditor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add New Editor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewEditorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnEditEditor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Edit Selected Editor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditEditorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnRmEditor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Remove Selected Editor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRmEditorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSearchEditor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Search Editor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchEditorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.Checkbox" name="chkIsAdmin">
+              <BindingProperties>
+                <BindingProperty name="state" source="tblEditors" sourcePath="${selectedElement.isadmin}" target="chkIsAdmin" targetPath="state" updateStrategy="0" immediately="false"/>
+              </BindingProperties>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="tbProducts">
           <Constraints>
@@ -205,7 +423,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrPane" pref="966" max="32767" attributes="0"/>
+                      <Component id="scrPane" pref="809" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -214,7 +432,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrPane" pref="624" max="32767" attributes="0"/>
+                      <Component id="scrPane" pref="629" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -251,6 +469,9 @@
                       </Subbinding>
                     </BindingProperty>
                   </BindingProperties>
+                  <Events>
+                    <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="tblProductsAncestorAdded"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -316,7 +537,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnNewProduct" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnEditProduct" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnRmProduct" pref="315" max="32767" attributes="0"/>
+                                  <Component id="btnRmProduct" max="32767" attributes="0"/>
                                   <Component id="btnSearchProduct" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="312" max="-2" attributes="0"/>
@@ -488,21 +709,33 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add New Product"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewProductActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnEditProduct">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit Selected Product"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditProductActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRmProduct">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remove Selected Product"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRmProductActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSearchProduct">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Products"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchProductActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSpinner" name="spnPrice">
               <BindingProperties>

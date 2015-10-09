@@ -163,7 +163,7 @@ public class Productstb implements Serializable {
 
     @Override
     public String toString() {
-        return "store.Productstb[ sku=" + sku + " ]";
+        return productname;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {

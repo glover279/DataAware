@@ -5,7 +5,8 @@
  */
 package store;
 
-import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -43,6 +44,24 @@ public class tblMain extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEditors = new javax.swing.JTable();
         tbEditEditors = new javax.swing.JPanel();
+        btnFirst1 = new javax.swing.JButton();
+        btnPrevious1 = new javax.swing.JButton();
+        btnNext1 = new javax.swing.JButton();
+        btnLast1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lsEditor = new javax.swing.JList();
+        txtStaticTotalLogins = new javax.swing.JLabel();
+        txtStaticUsername = new javax.swing.JLabel();
+        txtStaticIsAdmin = new javax.swing.JLabel();
+        dpDOB = new org.jdesktop.swingx.JXDatePicker();
+        txtStaticDOB = new javax.swing.JLabel();
+        spnTotLogins = new javax.swing.JSpinner();
+        txtUsername = new javax.swing.JTextField();
+        btnNewEditor = new javax.swing.JButton();
+        btnEditEditor = new javax.swing.JButton();
+        btnRmEditor = new javax.swing.JButton();
+        btnSearchEditor = new javax.swing.JButton();
+        chkIsAdmin = new java.awt.Checkbox();
         tbProducts = new javax.swing.JPanel();
         scrPane = new javax.swing.JScrollPane();
         tblProducts = new javax.swing.JTable();
@@ -72,6 +91,8 @@ public class tblMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tbpTabs.setMinimumSize(new java.awt.Dimension(150, 150));
+
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, editorstbList, tblEditors);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${totallogins}"));
         columnBinding.setColumnName("Totallogins");
@@ -99,28 +120,181 @@ public class tblMain extends javax.swing.JFrame {
             tbEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tbEditorsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
                 .addContainerGap())
         );
         tbEditorsLayout.setVerticalGroup(
             tbEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tbEditorsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         tbpTabs.addTab("Editors", tbEditors);
 
+        btnFirst1.setText("<<");
+        btnFirst1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirst1ActionPerformed(evt);
+            }
+        });
+
+        btnPrevious1.setText("<");
+        btnPrevious1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrevious1ActionPerformed(evt);
+            }
+        });
+
+        btnNext1.setText(">");
+        btnNext1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNext1ActionPerformed(evt);
+            }
+        });
+
+        btnLast1.setText(">>");
+        btnLast1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLast1ActionPerformed(evt);
+            }
+        });
+
+        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, editorstbList, lsEditor);
+        bindingGroup.addBinding(jListBinding);
+
+        jScrollPane3.setViewportView(lsEditor);
+
+        txtStaticTotalLogins.setText("Total Logins:");
+
+        txtStaticUsername.setText("Username:");
+
+        txtStaticIsAdmin.setText("Is Administrator?:");
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tblEditors, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.dateofbirth}"), dpDOB, org.jdesktop.beansbinding.BeanProperty.create("date"));
+        bindingGroup.addBinding(binding);
+
+        txtStaticDOB.setText("Date of Birth:");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tblEditors, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.totallogins}"), spnTotLogins, org.jdesktop.beansbinding.BeanProperty.create("value"));
+        bindingGroup.addBinding(binding);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tblEditors, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.username}"), txtUsername, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        btnNewEditor.setText("Add New Editor");
+        btnNewEditor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewEditorActionPerformed(evt);
+            }
+        });
+
+        btnEditEditor.setText("Edit Selected Editor");
+        btnEditEditor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditEditorActionPerformed(evt);
+            }
+        });
+
+        btnRmEditor.setText("Remove Selected Editor");
+        btnRmEditor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRmEditorActionPerformed(evt);
+            }
+        });
+
+        btnSearchEditor.setText("Search Editor");
+        btnSearchEditor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchEditorActionPerformed(evt);
+            }
+        });
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tblEditors, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.isadmin}"), chkIsAdmin, org.jdesktop.beansbinding.BeanProperty.create("state"));
+        bindingGroup.addBinding(binding);
+
         javax.swing.GroupLayout tbEditEditorsLayout = new javax.swing.GroupLayout(tbEditEditors);
         tbEditEditors.setLayout(tbEditEditorsLayout);
         tbEditEditorsLayout.setHorizontalGroup(
             tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 990, Short.MAX_VALUE)
+            .addGroup(tbEditEditorsLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(btnFirst1)
+                .addGap(18, 18, 18)
+                .addComponent(btnPrevious1)
+                .addGap(18, 18, 18)
+                .addComponent(btnNext1)
+                .addGap(18, 18, 18)
+                .addComponent(btnLast1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tbEditEditorsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tbEditEditorsLayout.createSequentialGroup()
+                        .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtStaticUsername)
+                            .addComponent(txtStaticTotalLogins)
+                            .addComponent(txtStaticDOB))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(tbEditEditorsLayout.createSequentialGroup()
+                        .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSearchEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnRmEditor, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+                                .addComponent(btnEditEditor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnNewEditor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(tbEditEditorsLayout.createSequentialGroup()
+                                .addComponent(txtStaticIsAdmin)
+                                .addGap(94, 94, 94)
+                                .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dpDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spnTotLogins, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(chkIsAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 120, Short.MAX_VALUE))))
         );
         tbEditEditorsLayout.setVerticalGroup(
             tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGroup(tbEditEditorsLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFirst1)
+                    .addComponent(btnPrevious1)
+                    .addComponent(btnNext1)
+                    .addComponent(btnLast1))
+                .addGap(31, 31, 31)
+                .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tbEditEditorsLayout.createSequentialGroup()
+                        .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tbEditEditorsLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(txtStaticUsername))
+                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtStaticIsAdmin)
+                            .addComponent(chkIsAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtStaticTotalLogins)
+                            .addComponent(spnTotLogins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addGroup(tbEditEditorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtStaticDOB)
+                            .addComponent(dpDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addComponent(btnNewEditor)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnEditEditor)
+                        .addGap(53, 53, 53)
+                        .addComponent(btnRmEditor)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnSearchEditor)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tbpTabs.addTab("Edit Editors", tbEditEditors);
@@ -147,6 +321,15 @@ public class tblMain extends javax.swing.JFrame {
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
 
+        tblProducts.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tblProductsAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         scrPane.setViewportView(tblProducts);
 
         javax.swing.GroupLayout tbProductsLayout = new javax.swing.GroupLayout(tbProducts);
@@ -155,14 +338,14 @@ public class tblMain extends javax.swing.JFrame {
             tbProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tbProductsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrPane, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+                .addComponent(scrPane, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
                 .addContainerGap())
         );
         tbProductsLayout.setVerticalGroup(
             tbProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tbProductsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrPane, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                .addComponent(scrPane, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -196,14 +379,14 @@ public class tblMain extends javax.swing.JFrame {
             }
         });
 
-        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, productstbList, lsProduct);
+        jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, productstbList, lsProduct);
         bindingGroup.addBinding(jListBinding);
 
         jScrollPane2.setViewportView(lsProduct);
 
         txtStaticProductName.setText("Product Name:");
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lsProduct, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.description}"), txtDescription, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lsProduct, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.description}"), txtDescription, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
         txtStaticDescription.setText("Description:");
@@ -226,12 +409,32 @@ public class tblMain extends javax.swing.JFrame {
         txtStaticPrice.setText("Price (nearest Rand) :");
 
         btnNewProduct.setText("Add New Product");
+        btnNewProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewProductActionPerformed(evt);
+            }
+        });
 
         btnEditProduct.setText("Edit Selected Product");
+        btnEditProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProductActionPerformed(evt);
+            }
+        });
 
         btnRmProduct.setText("Remove Selected Product");
+        btnRmProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRmProductActionPerformed(evt);
+            }
+        });
 
         btnSearchProduct.setText("Search Products");
+        btnSearchProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchProductActionPerformed(evt);
+            }
+        });
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lsProduct, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.price}"), spnPrice, org.jdesktop.beansbinding.BeanProperty.create("value"));
         bindingGroup.addBinding(binding);
@@ -283,7 +486,7 @@ public class tblMain extends javax.swing.JFrame {
                         .addGroup(tbEditProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnNewProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnEditProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRmProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                            .addComponent(btnRmProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSearchProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(312, 312, 312))))
         );
@@ -340,11 +543,11 @@ public class tblMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tbpTabs)
+            .addComponent(tbpTabs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tbpTabs)
+            .addComponent(tbpTabs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         bindingGroup.bind();
@@ -352,29 +555,171 @@ public class tblMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+    private void btnFirst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst1ActionPerformed
         // TODO add your handling code here:
-        int size=lsProduct.getFirstVisibleIndex();
-        lsProduct.setSelectedIndex(size);
-    }//GEN-LAST:event_btnFirstActionPerformed
+    }//GEN-LAST:event_btnFirst1ActionPerformed
+
+    private void btnPrevious1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevious1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPrevious1ActionPerformed
+
+    private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNext1ActionPerformed
+
+    private void btnLast1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLast1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLast1ActionPerformed
+
+    private void btnNewEditorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewEditorActionPerformed
+        // TODO add your handling code here:
+        Editorstb etb = new Editorstb();
+
+        etb.setUsername(txtUsername.getText());
+        etb.setDateofbirth(dpDOB.getDate());
+        etb.setIsadmin(chkIsAdmin.getState());
+        int totlog = (Integer) spnTotLogins.getValue();
+        etb.setTotallogins(totlog);
+        
+
+        StorePUEntityManager.getTransaction().begin();
+        StorePUEntityManager.persist(etb);
+        StorePUEntityManager.getTransaction().commit();
+
+        editorstbList.add(etb);
+        lsProduct.setSelectedValue(etb, true);
+    }//GEN-LAST:event_btnNewEditorActionPerformed
+
+    private void btnEditEditorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditEditorActionPerformed
+        // TODO add your handling code here:
+        final JPanel panel = new JPanel();
+        if (lsEditor.getSelectedValue() == null) {
+            JOptionPane.showMessageDialog(panel, "Please Select a Product to Edit data", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Editorstb edit = (Editorstb) lsEditor.getSelectedValue();
+            edit.setUsername(txtUsername.getText());
+            edit.setDateofbirth(dpDOB.getDate());
+            edit.setIsadmin(chkIsAdmin.getState());
+            int totlog = (Integer) spnTotLogins.getValue();
+            edit.setTotallogins(totlog);
+
+            StorePUEntityManager.getTransaction().begin();
+            //StorePUEntityManager.persist();
+            StorePUEntityManager.getTransaction().commit();
+        }
+    }//GEN-LAST:event_btnEditEditorActionPerformed
+
+    private void btnRmEditorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRmEditorActionPerformed
+        // TODO add your handling code here:
+        StorePUEntityManager.getTransaction().begin();
+        StorePUEntityManager.remove(lsEditor.getSelectedValue());
+        StorePUEntityManager.getTransaction().commit();
+        editorstbList.remove(lsEditor.getSelectedValue());
+        productstbList.clear();
+        productstbList.addAll(productstbQuery.getResultList());
+    }//GEN-LAST:event_btnRmEditorActionPerformed
+
+    private void btnRmProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRmProductActionPerformed
+        // TODO add your handling code here:
+        StorePUEntityManager.getTransaction().begin();
+        StorePUEntityManager.remove(lsProduct.getSelectedValue());
+        StorePUEntityManager.getTransaction().commit();
+        productstbList.remove(lsProduct.getSelectedValue());
+        editorstbList.clear();
+        editorstbList.addAll(editorstbQuery.getResultList());
+    }//GEN-LAST:event_btnRmProductActionPerformed
+
+    private void btnEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProductActionPerformed
+        final JPanel panel = new JPanel();
+        if (lsProduct.getSelectedValue() == null) {
+            JOptionPane.showMessageDialog(panel, "Please Select a Product to Edit data", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Productstb pro = (Productstb) lsProduct.getSelectedValue();
+            pro.setDescription(txtDescription.getText());
+            pro.setDateadded(dpDateAdded.getDate());
+            pro.setIsdigital(chkIsDigital.getState());
+            int price1 = (Integer) spnPrice.getValue();
+            pro.setPrice(price1);
+            pro.setProductname(txtProductName1.getText());
+
+            StorePUEntityManager.getTransaction().begin();
+            //StorePUEntityManager.persist();
+            StorePUEntityManager.getTransaction().commit();
+        }
+    }//GEN-LAST:event_btnEditProductActionPerformed
+
+    private void btnNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProductActionPerformed
+        // TODO add your handling code here:
+        Productstb nProduct = new Productstb();
+
+        nProduct.setDescription(txtDescription.getText());
+        nProduct.setDateadded(dpDateAdded.getDate());
+        nProduct.setIsdigital(chkIsDigital.getState());
+        int price1 = (Integer) spnPrice.getValue();
+        nProduct.setPrice(price1);
+        nProduct.setProductname(txtProductName1.getText());
+
+        StorePUEntityManager.getTransaction().begin();
+        StorePUEntityManager.persist(nProduct);
+        StorePUEntityManager.getTransaction().commit();
+
+        productstbList.add(nProduct);
+        lsProduct.setSelectedValue(nProduct, true);
+    }//GEN-LAST:event_btnNewProductActionPerformed
 
     private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
         // TODO add your handling code here:
-        int size=lsProduct.getVisibleRowCount();
+        int size = lsProduct.getVisibleRowCount();
         lsProduct.setSelectedIndex(size);
     }//GEN-LAST:event_btnLastActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        int size=lsProduct.getSelectedIndex()+1;
+        int size = lsProduct.getSelectedIndex() + 1;
         lsProduct.setSelectedIndex(size);
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
         // TODO add your handling code here:
-        int size=lsProduct.getSelectedIndex()-1;
+        int size = lsProduct.getSelectedIndex() - 1;
         lsProduct.setSelectedIndex(size);
     }//GEN-LAST:event_btnPreviousActionPerformed
+
+    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+        // TODO add your handling code here:
+        int size = lsProduct.getFirstVisibleIndex();
+        lsProduct.setSelectedIndex(size);
+    }//GEN-LAST:event_btnFirstActionPerformed
+
+    private void tblProductsAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblProductsAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblProductsAncestorAdded
+
+    private void btnSearchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchProductActionPerformed
+        // TODO add your handling code here:
+        Object[] objs = lsProduct.getComponents();
+        String temp=JOptionPane.showInputDialog("Enter Key Word to search for");
+        for (int i=lsProduct.getMinSelectionIndex(); i<=lsProduct.getMaxSelectionIndex()-1; i++)
+        {
+        if (objs[i].toString().contains(temp)==true)
+        {lsProduct.setSelectedIndex(i);}
+        
+        }
+    }//GEN-LAST:event_btnSearchProductActionPerformed
+
+    private void btnSearchEditorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchEditorActionPerformed
+        // TODO add your handling code here:
+        Object[] objs = lsEditor.getComponents();
+        String temp=JOptionPane.showInputDialog("Enter Key Word to search for");
+        for (int i=lsEditor.getMinSelectionIndex(); i<=lsEditor.getMaxSelectionIndex()-1; i++)
+        { System.out.println(i);
+        if (objs[i].toString().contains(temp)==true)
+        {
+            System.out.println(i);
+            lsEditor.setSelectedIndex(i);}
+        System.out.println(i);
+        }
+    }//GEN-LAST:event_btnSearchEditorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,21 +758,33 @@ public class tblMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager StorePUEntityManager;
+    private javax.swing.JButton btnEditEditor;
     private javax.swing.JButton btnEditProduct;
     private javax.swing.JButton btnFirst;
+    private javax.swing.JButton btnFirst1;
     private javax.swing.JButton btnLast;
+    private javax.swing.JButton btnLast1;
+    private javax.swing.JButton btnNewEditor;
     private javax.swing.JButton btnNewProduct;
     private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnNext1;
     private javax.swing.JButton btnPrevious;
+    private javax.swing.JButton btnPrevious1;
+    private javax.swing.JButton btnRmEditor;
     private javax.swing.JButton btnRmProduct;
+    private javax.swing.JButton btnSearchEditor;
     private javax.swing.JButton btnSearchProduct;
+    private java.awt.Checkbox chkIsAdmin;
     private java.awt.Checkbox chkIsDigital;
+    private org.jdesktop.swingx.JXDatePicker dpDOB;
     private org.jdesktop.swingx.JXDatePicker dpDateAdded;
     private java.util.List<store.Editorstb> editorstbList;
     private javax.persistence.Query editorstbQuery;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList lsEditor;
     private javax.swing.JList lsProduct;
     private java.util.List<store.Productstb> productstbList;
     private java.util.List<store.Productstb> productstbList1;
@@ -435,6 +792,7 @@ public class tblMain extends javax.swing.JFrame {
     private javax.persistence.Query productstbQuery1;
     private javax.swing.JScrollPane scrPane;
     private javax.swing.JSpinner spnPrice;
+    private javax.swing.JSpinner spnTotLogins;
     private javax.swing.JSpinner spnUID;
     private javax.swing.JPanel tbEditEditors;
     private javax.swing.JPanel tbEditProducts;
@@ -446,11 +804,16 @@ public class tblMain extends javax.swing.JFrame {
     private javax.swing.JTextField txtDescription;
     private javax.swing.JTextField txtProductName1;
     private javax.swing.JLabel txtStaticCreatedBy;
+    private javax.swing.JLabel txtStaticDOB;
     private javax.swing.JLabel txtStaticDateAdded;
     private javax.swing.JLabel txtStaticDescription;
+    private javax.swing.JLabel txtStaticIsAdmin;
     private javax.swing.JLabel txtStaticIsDigital;
     private javax.swing.JLabel txtStaticPrice;
     private javax.swing.JLabel txtStaticProductName;
+    private javax.swing.JLabel txtStaticTotalLogins;
+    private javax.swing.JLabel txtStaticUsername;
+    private javax.swing.JTextField txtUsername;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

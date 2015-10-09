@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -58,7 +59,7 @@ public class Editorstb implements Serializable {
     private Boolean isadmin;
     @Column(name = "TOTALLOGINS")
     private Integer totallogins;
-    @OneToMany(mappedBy = "editorstb")
+    @OneToMany(mappedBy = "editorstb", cascade=CascadeType.REMOVE)
     private List<Productstb> productstbList;
 
     public Editorstb() {
@@ -149,7 +150,7 @@ public class Editorstb implements Serializable {
 
     @Override
     public String toString() {
-        return "store.Editorstb[ id=" + id + " ]";
+        return username;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
